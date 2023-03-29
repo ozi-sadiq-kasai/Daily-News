@@ -1,0 +1,48 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+main{
+    border: 2px solid red;
+    height: 100%;
+    width: 100%;
+}
+
+/* header */
+header{
+    display: flex;
+    justify-content: center;
+    background-color: #9a031e;
+}
+#heading{
+    color: white;
+    font-size: 50px;
+
+}
+#heading-logo{
+    color: black;
+    font-size: 40px;
+}
+
+/* buttons */
+.buttons{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid green;
+    margin: 10px;
+    padding: 3px;
+}
+.btn{
+    padding: 5px 10px; 
+    border-radius: 3px;
+    border: none;
+    color: #9a031e;
+}
+.btn:hover{
+    color: white;
+    background: #9a031e;
+}
+
+/* articles */
