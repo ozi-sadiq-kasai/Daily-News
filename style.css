@@ -42,6 +42,9 @@ section{
     display: block;
     padding: 0 10px;
 }
+img{
+    width:200px;
+}
 @media screen and (max-width:599px) {
         .buttons{
             display: grid;
