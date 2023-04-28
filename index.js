@@ -14,13 +14,12 @@ let bisBtn = document.querySelector('.btn-Business')
 let healthBtn = document.querySelector('.btn-Health')
 let sportsBtn = document.querySelector('.btn-Sports')
 let entBtn = document.querySelector('.btn-Entertainment')
-let error = document.querySelector('.error')
-let active = document.querySelector('h5')
+window.onload = getHeadlines()  
+// let error = document.querySelector('.error')
+// let active = document.querySelector('h5')
 
-// CREATE RELOAD
 
 
-newsArr = []
 // develop  Science function
  function getscience(){
     fetch(science)
@@ -28,12 +27,56 @@ newsArr = []
             return response.json()
         })
         .then(data => {
-            newsArr = data.articles
-           return newsArr
-      }) 
-      display()
-    //   active.innerContent =`<span>Active Page:</span>ooo`
-    }
+          section.innerHTML = ''
+          let newsArr= data.articles
+          newsArr.forEach(news =>{
+                // Create Title
+                let article = document.createElement('article')
+                let title = document.createElement('p')
+                    title.setAttribute('class','title')
+                    title.textContent = news.title
+                    // Create Image
+                    let image = document.createElement('img')
+                    image.src = news.urlToImage
+                    if(image.src ===  404){
+                        console.log('none')
+                    }
+                   
+                    // Create description
+                    let content = document.createElement('p')
+                        content.setAttribute('class','desc')
+                        content.textContent = news.description
+                    
+                    // Create ReadMore link
+                    let link = document.createElement('a')
+                        link.setAttribute('class','link')
+                        link.href = news.url
+                        link.innerText = 'Read More'
+                        link.target = '_blank'    
+                    // Create date
+                    let date = document.createElement('span')
+                        date.setAttribute('class','date')
+                        let noDate= news.publishedAt
+                            noDate = new Date(noDate).getTime()
+                        let day = new Date(noDate).getDate()+1
+                        let month = new Date(noDate).getMonth()+1
+                        let year = new Date(noDate).getFullYear()
+                        let currentDate = `${day}/${month}/${year}`
+                            date.textContent = currentDate
+                    
+                    
+                    // Append
+                    article.appendChild(title)
+                    article.appendChild(image)
+                    article.appendChild(content)
+                    article.appendChild(link)
+                    article.appendChild(date)
+                    section.appendChild(article)    
+                })        
+             }
+                       
+      )} 
+  
 // develop  Business function  
 function getBusiness(){
     fetch(business)
@@ -41,11 +84,56 @@ function getBusiness(){
             return response.json()
         })
         .then(data => {
-            newsArr = data.articles
-           return newsArr
-      }) 
-      display()
-    }       
+          section.innerHTML = ''
+          let newsArr= data.articles
+          newsArr.forEach(news =>{
+                // Create Title
+                let article = document.createElement('article')
+                let title = document.createElement('p')
+                    title.setAttribute('class','title')
+                    title.textContent = news.title
+                    // Create Image
+                    let image = document.createElement('img')
+                    image.src = news.urlToImage
+                    if(image.src ===  404){
+                        console.log('none')
+                    }
+                   
+                    // Create description
+                    let content = document.createElement('p')
+                        content.setAttribute('class','desc')
+                        content.textContent = news.description
+                    
+                    // Create ReadMore link
+                    let link = document.createElement('a')
+                        link.setAttribute('class','link')
+                        link.href = news.url
+                        link.innerText = 'Read More'
+                        link.target = '_blank'    
+                    // Create date
+                    let date = document.createElement('span')
+                        date.setAttribute('class','date')
+                        let noDate= news.publishedAt
+                            noDate = new Date(noDate).getTime()
+                        let day = new Date(noDate).getDate()+1
+                        let month = new Date(noDate).getMonth()+1
+                        let year = new Date(noDate).getFullYear()
+                        let currentDate = `${day}/${month}/${year}`
+                            date.textContent = currentDate
+                    
+                    
+                    // Append
+                    article.appendChild(title)
+                    article.appendChild(image)
+                    article.appendChild(content)
+                    article.appendChild(link)
+                    article.appendChild(date)
+                    section.appendChild(article)    
+                })        
+             }
+                       
+      )} 
+           
 // develop  Tech function    
 function getTech(){
     fetch(technology)
@@ -53,11 +141,56 @@ function getTech(){
             return response.json()
         })
         .then(data => {
-            newsArr = data.articles
-           return newsArr
-      }) 
-      display()
-    }  
+          section.innerHTML = ''
+          let newsArr= data.articles
+          newsArr.forEach(news =>{
+                // Create Title
+                let article = document.createElement('article')
+                let title = document.createElement('p')
+                    title.setAttribute('class','title')
+                    title.textContent = news.title
+                    // Create Image
+                    let image = document.createElement('img')
+                    image.src = news.urlToImage
+                    if(image.src ===  404){
+                        console.log('none')
+                    }
+                   
+                    // Create description
+                    let content = document.createElement('p')
+                        content.setAttribute('class','desc')
+                        content.textContent = news.description
+                    
+                    // Create ReadMore link
+                    let link = document.createElement('a')
+                        link.setAttribute('class','link')
+                        link.href = news.url
+                        link.innerText = 'Read More'
+                        link.target = '_blank'    
+                    // Create date
+                    let date = document.createElement('span')
+                        date.setAttribute('class','date')
+                        let noDate= news.publishedAt
+                            noDate = new Date(noDate).getTime()
+                        let day = new Date(noDate).getDate()+1
+                        let month = new Date(noDate).getMonth()+1
+                        let year = new Date(noDate).getFullYear()
+                        let currentDate = `${day}/${month}/${year}`
+                            date.textContent = currentDate
+                    
+                    
+                    // Append
+                    article.appendChild(title)
+                    article.appendChild(image)
+                    article.appendChild(content)
+                    article.appendChild(link)
+                    article.appendChild(date)
+                    section.appendChild(article)    
+                })        
+             }
+                       
+      )}
+    
 // develop health function    
 function getHealth(){
     fetch(health)
@@ -65,11 +198,56 @@ function getHealth(){
             return response.json()
         })
         .then(data => {
-            newsArr = data.articles
-           return newsArr
-      }) 
-      display()
-    }  
+          section.innerHTML = ''
+          let newsArr= data.articles
+          newsArr.forEach(news =>{
+                // Create Title
+                let article = document.createElement('article')
+                let title = document.createElement('p')
+                    title.setAttribute('class','title')
+                    title.textContent = news.title
+                    // Create Image
+                    let image = document.createElement('img')
+                    image.src = news.urlToImage
+                    if(image.src ===  404){
+                        console.log('none')
+                    }
+                   
+                    // Create description
+                    let content = document.createElement('p')
+                        content.setAttribute('class','desc')
+                        content.textContent = news.description
+                    
+                    // Create ReadMore link
+                    let link = document.createElement('a')
+                        link.setAttribute('class','link')
+                        link.href = news.url
+                        link.innerText = 'Read More'
+                        link.target = '_blank'    
+                    // Create date
+                    let date = document.createElement('span')
+                        date.setAttribute('class','date')
+                        let noDate= news.publishedAt
+                            noDate = new Date(noDate).getTime()
+                        let day = new Date(noDate).getDate()+1
+                        let month = new Date(noDate).getMonth()+1
+                        let year = new Date(noDate).getFullYear()
+                        let currentDate = `${day}/${month}/${year}`
+                            date.textContent = currentDate
+                    
+                    
+                    // Append
+                    article.appendChild(title)
+                    article.appendChild(image)
+                    article.appendChild(content)
+                    article.appendChild(link)
+                    article.appendChild(date)
+                    section.appendChild(article)    
+                })        
+             }
+                       
+      )} 
+   
 // develop Entertainment function    
 function getEnt(){
     fetch(entertainment)
@@ -77,11 +255,55 @@ function getEnt(){
             return response.json()
         })
         .then(data => {
-            newsArr = data.articles
-           return newsArr
-      }) 
-      display()
-    } 
+          section.innerHTML = ''
+          let newsArr= data.articles
+          newsArr.forEach(news =>{
+                // Create Title
+                let article = document.createElement('article')
+                let title = document.createElement('p')
+                    title.setAttribute('class','title')
+                    title.textContent = news.title
+                    // Create Image
+                    let image = document.createElement('img')
+                    image.src = news.urlToImage
+                    if(image.src ===  404){
+                        console.log('none')
+                    }
+                   
+                    // Create description
+                    let content = document.createElement('p')
+                        content.setAttribute('class','desc')
+                        content.textContent = news.description
+                    
+                    // Create ReadMore link
+                    let link = document.createElement('a')
+                        link.setAttribute('class','link')
+                        link.href = news.url
+                        link.innerText = 'Read More'
+                        link.target = '_blank'    
+                    // Create date
+                    let date = document.createElement('span')
+                        date.setAttribute('class','date')
+                        let noDate= news.publishedAt
+                            noDate = new Date(noDate).getTime()
+                        let day = new Date(noDate).getDate()+1
+                        let month = new Date(noDate).getMonth()+1
+                        let year = new Date(noDate).getFullYear()
+                        let currentDate = `${day}/${month}/${year}`
+                            date.textContent = currentDate
+                    
+                    
+                    // Append
+                    article.appendChild(title)
+                    article.appendChild(image)
+                    article.appendChild(content)
+                    article.appendChild(link)
+                    article.appendChild(date)
+                    section.appendChild(article)    
+                })        
+             }                 
+    )} 
+
 // develop Sports function
 function getSports(){
     fetch(sports)
@@ -89,78 +311,112 @@ function getSports(){
             return response.json()
         })
         .then(data => {
-              newsArr = data.articles
-             return newsArr
-        }) 
-        display()
-        
-    }
+              section.innerHTML = ''
+              let newsArr= data.articles
+              newsArr.forEach(news =>{
+                    // Create Title
+                    let article = document.createElement('article')
+                    let title = document.createElement('p')
+                        title.setAttribute('class','title')
+                        title.textContent = news.title
+                        // Create Image
+                        let image = document.createElement('img')
+                        image.src = news.urlToImage
+                        if(image.src ===  404){
+                            console.log('none')
+                        }
+                       
+                        // Create description
+                        let content = document.createElement('p')
+                            content.setAttribute('class','desc')
+                            content.textContent = news.description
+                        
+                        // Create ReadMore link
+                        let link = document.createElement('a')
+                            link.setAttribute('class','link')
+                            link.href = news.url
+                            link.innerText = 'Read More'
+                            link.target = '_blank'    
+                        // Create date
+                        let date = document.createElement('span')
+                            date.setAttribute('class','date')
+                            let noDate= news.publishedAt
+                                noDate = new Date(noDate).getTime()
+                            let day = new Date(noDate).getDate()+1
+                            let month = new Date(noDate).getMonth()+1
+                            let year = new Date(noDate).getFullYear()
+                            let currentDate = `${day}/${month}/${year}`
+                                date.textContent = currentDate
+                        
+                        
+                        // Append
+                        article.appendChild(title)
+                        article.appendChild(image)
+                        article.appendChild(content)
+                        article.appendChild(link)
+                        article.appendChild(date)
+                        section.appendChild(article)    
+                    })        
+                 }
+                           
+            
+    )}
 // develop headline function
-function getHead(){
-    fetch(headlines)
-        .then(response => {
-            return response.json()
-        })
-        .then(data => {
-              newsArr = data.articles
-             return newsArr
-        }) 
-        display()
-        
-    }
-
-
-
-
-// CREATE DISPLAY
-    function display(){
+function getHeadlines(){
+  fetch(headlines)
+      .then(response => {
+          return response.json()
+      })
+      .then(data => {
         section.innerHTML = ''
+        let newsArr= data.articles
         newsArr.forEach(news =>{
-        // Create Title
-        let article = document.createElement('article')
-        let title = document.createElement('p')
-            title.setAttribute('class','title')
-            title.textContent = news.title
-            // Create Image
-            let image = document.createElement('img')
-            image.src = news.urlToImage
-            // if(image.src ===  response.st'){
-            //     console.log('none')
-            // }
-           
-            // Create description
-            let content = document.createElement('p')
-                content.setAttribute('class','desc')
-                content.textContent = news.description
-            
-            // Create ReadMore link
-            let link = document.createElement('a')
-                link.setAttribute('class','link')
-                link.href = news.url
-                link.innerText = 'Read More'
-                link.target = '_blank'    
-            // Create date
-            let date = document.createElement('span')
-                date.setAttribute('class','date')
-                let noDate= news.publishedAt
-                    noDate = new Date(noDate).getTime()
-                let day = new Date(noDate).getDate()+1
-                let month = new Date(noDate).getMonth()+1
-                let year = new Date(noDate).getFullYear()
-                let currentDate = `${day}/${month}/${year}`
-                    date.textContent = currentDate
-            
-            
-            // Append
-            article.appendChild(title)
-            article.appendChild(image)
-            article.appendChild(content)
-            article.appendChild(link)
-            article.appendChild(date)
-            section.appendChild(article)    
-        })        
-     }
-               
+              // Create Title
+              let article = document.createElement('article')
+              let title = document.createElement('p')
+                  title.setAttribute('class','title')
+                  title.textContent = news.title
+                  // Create Image
+                  let image = document.createElement('img')
+                  image.src = news.urlToImage
+                  if(image.src ===  404){
+                      console.log('none')
+                  }
+                 
+                  // Create description
+                  let content = document.createElement('p')
+                      content.setAttribute('class','desc')
+                      content.textContent = news.description
+                  
+                  // Create ReadMore link
+                  let link = document.createElement('a')
+                      link.setAttribute('class','link')
+                      link.href = news.url
+                      link.innerText = 'Read More'
+                      link.target = '_blank'    
+                  // Create date
+                  let date = document.createElement('span')
+                      date.setAttribute('class','date')
+                      let noDate= news.publishedAt
+                          noDate = new Date(noDate).getTime()
+                      let day = new Date(noDate).getDate()+1
+                      let month = new Date(noDate).getMonth()+1
+                      let year = new Date(noDate).getFullYear()
+                      let currentDate = `${day}/${month}/${year}`
+                          date.textContent = currentDate
+                  
+                  
+                  // Append
+                  article.appendChild(title)
+                  article.appendChild(image)
+                  article.appendChild(content)
+                  article.appendChild(link)
+                  article.appendChild(date)
+                  section.appendChild(article)    
+              })        
+           }
+                     
+    )} 
 
 // ADD EVENT LISTENERS
 
