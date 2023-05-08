@@ -5,9 +5,9 @@
     box-sizing: border-box;
 }
 body{
-    width:100vw;
+    /* width:100vw; */
     height: 100vh;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     font-family: 'Roboto', sans-serif;
 }
 main{
@@ -22,6 +22,7 @@ header{
     justify-content: center;
     background-color: #9a031e;
     padding: 30px;
+    
 }
 #heading{
     color: white;
@@ -36,7 +37,7 @@ header{
 
 section{
     display: block;
-    padding: 20px 0 20px 50px;
+    padding: 20px 50px 20px 50px;
 }
 img{
     width:350px;
@@ -115,6 +116,19 @@ article{
         /* row-gap: 5px; */
     }
   
+}
+footer{
+  background-color: #9a031e;
+  
+}
+footer ul{
+  height: 50px;
+  /* width: 100%; */
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 @media screen and (min-width:600px) and (max-width:768px) {
